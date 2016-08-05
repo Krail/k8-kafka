@@ -1,0 +1,7 @@
+# Ignore eclipse directories
+.classpath
+.project
+.settings
+
+# Ignore built war package
+target

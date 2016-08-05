@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+spec:
+  tls:
+  - hosts:
+    - kafka.kritter.dev
+    secretName: secret
+  rules:
+  - host: kafka.kritter.dev
+    http:
+      paths:
+      - path: /kafka-producer
+        backend:
+          serviceName: producer-svc
+          servicePort: 8080
+      - path: /kafka-consumer
+        backend:
+          serviceName: consumer-svc
+          servicePort: 8080
